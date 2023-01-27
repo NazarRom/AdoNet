@@ -47,8 +47,9 @@
             this.lstDepartamentos.ItemHeight = 15;
             this.lstDepartamentos.Location = new System.Drawing.Point(74, 135);
             this.lstDepartamentos.Name = "lstDepartamentos";
-            this.lstDepartamentos.Size = new System.Drawing.Size(120, 184);
+            this.lstDepartamentos.Size = new System.Drawing.Size(343, 184);
             this.lstDepartamentos.TabIndex = 0;
+            this.lstDepartamentos.SelectedIndexChanged += new System.EventHandler(this.lstDepartamentos_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -62,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(244, 51);
+            this.label2.Location = new System.Drawing.Point(471, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(18, 15);
             this.label2.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(244, 91);
+            this.txtId.Location = new System.Drawing.Point(471, 94);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 23);
             this.txtId.TabIndex = 3;
@@ -78,7 +79,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(244, 135);
+            this.label3.Location = new System.Drawing.Point(475, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 15);
             this.label3.TabIndex = 4;
@@ -86,7 +87,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(244, 183);
+            this.txtNombre.Location = new System.Drawing.Point(471, 186);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 23);
             this.txtNombre.TabIndex = 5;
@@ -94,7 +95,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(248, 248);
+            this.label4.Location = new System.Drawing.Point(475, 269);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 15);
             this.label4.TabIndex = 6;
@@ -102,14 +103,14 @@
             // 
             // txtLocalidad
             // 
-            this.txtLocalidad.Location = new System.Drawing.Point(248, 296);
+            this.txtLocalidad.Location = new System.Drawing.Point(471, 296);
             this.txtLocalidad.Name = "txtLocalidad";
             this.txtLocalidad.Size = new System.Drawing.Size(100, 23);
             this.txtLocalidad.TabIndex = 7;
             // 
             // bntInseratr
             // 
-            this.bntInseratr.Location = new System.Drawing.Point(396, 136);
+            this.bntInseratr.Location = new System.Drawing.Point(623, 139);
             this.bntInseratr.Name = "bntInseratr";
             this.bntInseratr.Size = new System.Drawing.Size(75, 23);
             this.bntInseratr.TabIndex = 8;
@@ -119,7 +120,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(396, 206);
+            this.btnModificar.Location = new System.Drawing.Point(623, 209);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 9;
@@ -129,7 +130,7 @@
             // 
             // bntBorrar
             // 
-            this.bntBorrar.Location = new System.Drawing.Point(396, 277);
+            this.bntBorrar.Location = new System.Drawing.Point(623, 280);
             this.bntBorrar.Name = "bntBorrar";
             this.bntBorrar.Size = new System.Drawing.Size(75, 23);
             this.bntBorrar.TabIndex = 10;

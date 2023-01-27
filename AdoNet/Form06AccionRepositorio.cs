@@ -19,16 +19,18 @@ namespace AdoNet
         {
             InitializeComponent();
             this.repo = new RepositoryDepartamentos();
+            this.departamentos = new List<Departamento>();
             this.LoadDepartamentos();
             
         }
         private void LoadDepartamentos()
         {
-            this.departamentos = this.repo.GetDepartamentos();
             this.lstDepartamentos.Items.Clear();
+            this.departamentos.Clear();
+            this.departamentos = this.repo.GetDepartamentos();
            for (int i = 0; i < this.departamentos.Count; i++)
             {
-                this.lstDepartamentos.Items.Add(this.departamentos[i].Nombre + " - " + this.departamentos[i].IdDepartamento);
+                this.lstDepartamentos.Items.Add(this.departamentos[i].Nombre + " - " + this.departamentos[i].IdDepartamento + " - " + this.departamentos[i].Localidad);
                 
             } 
 
@@ -71,6 +73,15 @@ namespace AdoNet
             int id = this.departamentos[index].IdDepartamento;
             this.repo.DeleteDepartamento(id);
             this.LoadDepartamentos();
+        }
+
+        private void lstDepartamentos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.lstDepartamentos.SelectedItems.Count != 0)
+            {
+                int indiceSeleccionado = this.lstDepartamentos.SelectedIndices[0];
+
+            }
         }
     }
 }
