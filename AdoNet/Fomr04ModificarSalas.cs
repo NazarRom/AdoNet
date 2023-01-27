@@ -48,8 +48,7 @@ namespace AdoNet
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             string nombre = this.txtNombre.Text;
-            int select = this.lstSalas.SelectedIndex;
-            string nombreseleccionado = this.lstSalas.Items[select].ToString();
+            string nombreseleccionado = this.lstSalas.SelectedItem.ToString();
             string sql = "UPDATE SALA SET NOMBRE = @NOMBRENUEVO WHERE NOMBRE = @NOMBRESELECCIONADO";
 
             SqlParameter pamnombre = new SqlParameter("@NOMBRENUEVO", nombre);
@@ -58,7 +57,7 @@ namespace AdoNet
             this.com.Parameters.Add(pamnombre);
 
             this.cn.Open();
-            int mod = this.com.ExecuteNonQuery();
+            this.com.ExecuteNonQuery();
             this.cn.Close();
             this.com.Parameters.Clear();
             MessageBox.Show("Modificado");
