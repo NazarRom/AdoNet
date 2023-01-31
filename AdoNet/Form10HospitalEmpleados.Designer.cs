@@ -33,8 +33,8 @@
             this.btnMostrar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSuma = new System.Windows.Forms.TextBox();
-            this.txtMedia = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblMedia = new System.Windows.Forms.Label();
+            this.txtMedia = new System.Windows.Forms.TextBox();
             this.lblPersonas = new System.Windows.Forms.Label();
             this.txtPersonas = new System.Windows.Forms.TextBox();
             this.lstEmpleados = new System.Windows.Forms.ListBox();
@@ -84,21 +84,21 @@
             this.txtSuma.Size = new System.Drawing.Size(128, 23);
             this.txtSuma.TabIndex = 4;
             // 
+            // lblMedia
+            // 
+            this.lblMedia.AutoSize = true;
+            this.lblMedia.Location = new System.Drawing.Point(47, 317);
+            this.lblMedia.Name = "lblMedia";
+            this.lblMedia.Size = new System.Drawing.Size(40, 15);
+            this.lblMedia.TabIndex = 5;
+            this.lblMedia.Text = "Media";
+            // 
             // txtMedia
             // 
-            this.txtMedia.AutoSize = true;
-            this.txtMedia.Location = new System.Drawing.Point(47, 317);
+            this.txtMedia.Location = new System.Drawing.Point(47, 335);
             this.txtMedia.Name = "txtMedia";
-            this.txtMedia.Size = new System.Drawing.Size(40, 15);
-            this.txtMedia.TabIndex = 5;
-            this.txtMedia.Text = "Media";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(47, 335);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(128, 23);
-            this.textBox2.TabIndex = 6;
+            this.txtMedia.Size = new System.Drawing.Size(128, 23);
+            this.txtMedia.TabIndex = 6;
             // 
             // lblPersonas
             // 
@@ -143,8 +143,8 @@
             this.Controls.Add(this.lstEmpleados);
             this.Controls.Add(this.txtPersonas);
             this.Controls.Add(this.lblPersonas);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txtMedia);
+            this.Controls.Add(this.lblMedia);
             this.Controls.Add(this.txtSuma);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnMostrar);
@@ -164,8 +164,8 @@
         private Button btnMostrar;
         private Label label2;
         private TextBox txtSuma;
-        private Label txtMedia;
-        private TextBox textBox2;
+        private Label lblMedia;
+        private TextBox txtMedia;
         private Label lblPersonas;
         private TextBox txtPersonas;
         private ListBox lstEmpleados;
