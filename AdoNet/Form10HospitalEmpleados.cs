@@ -38,18 +38,18 @@ namespace AdoNet
     #endregion
     public partial class Form10HospitalEmpleados : Form
     {
-        SqlConnection cn;
-        SqlCommand com;
-        SqlDataReader reader;
-        List<int> listaIdHospital;
+        SqlConnection cn;//clase conexion
+        SqlCommand com;//clase comandos
+        SqlDataReader reader;//reader 
+        List<int> listaIdHospital;//lista para los ids
 
         public Form10HospitalEmpleados()
         {
             InitializeComponent();
-            this.listaIdHospital = new List<int>();
+            this.listaIdHospital = new List<int>();//declaro la lista
             string connectionString =
-                @"Data Source=.\SQLEXPRESS;Initial Catalog=Hospital;Persist Security Info=True;User ID=sa";
-            this.cn = new SqlConnection(connectionString);
+                @"Data Source=.\SQLEXPRESS;Initial Catalog=Hospital;Persist Security Info=True;User ID=sa";//la conexion
+            this.cn = new SqlConnection(connectionString);//realizo la conexion
             this.com = new SqlCommand();
             this.com.Connection = this.cn;
             this.LoadHospitales();
@@ -57,34 +57,43 @@ namespace AdoNet
 
         private void LoadHospitales()
         {
-            this.com.CommandType = CommandType.StoredProcedure;
-            this.com.CommandText = "SP_HOSPITALES";
+            //como vamos a usar procedure no hace falta declarar ninguna query 
+            //vamos directos al procedure
 
-            this.cn.Open();
-            this.reader = this.com.ExecuteReader();
-            this.cmbHospitales.Items.Clear();
-            while (this.reader.Read())
+            this.com.CommandType = CommandType.StoredProcedure; //definimos el tipo de la query en este caso de la procedure
+            this.com.CommandText = "SP_HOSPITALES";//aqui la procedure
+
+            this.cn.Open();//abrimos la conexion
+            this.reader = this.com.ExecuteReader();//ejecutamos el reader
+            this.cmbHospitales.Items.Clear();//limpiamos el combobox para que no se nos guarde varias veces
+            while (this.reader.Read())//el bucle para leer todos los datos y guardarlos
             {
                 int id = int.Parse(this.reader["HOSPITAL_COD"].ToString());
                 string nombre = this.reader["NOMBRE"].ToString();
-                this.cmbHospitales.Items.Add(nombre);
-                this.listaIdHospital.Add(id);
+                this.cmbHospitales.Items.Add(nombre);//guardo el nombre en el combobox
+                this.listaIdHospital.Add(id);//guardo el id de los hospitales 
             }
             this.cn.Close();
             this.reader.Close();
         }
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            int index = this.cmbHospitales.SelectedIndex;
-            int idHospital = this.listaIdHospital[index];
+            //lo que hago aqui es basicamente que a la hora de guardar todo 
+            //lo hago en 2 cosas distintas en una lista y un combo box 
+            //pero comparten el mismo index
+            //por lo tanto puedo recupersr los id
+            int index = this.cmbHospitales.SelectedIndex;//selecciono el index del hospital seleccionado
+            int idHospital = this.listaIdHospital[index];//con el index seleccionado recupero el id del hospital
 
             SqlParameter pamid = new SqlParameter("@id", idHospital);
             this.com.Parameters.Add(pamid);
             //declaramos los parametros de salida
 
-            SqlParameter pamsuma = new SqlParameter("SUMA",0);
-            pamsuma.Direction = ParameterDirection.Output;
-            this.com.Parameters.Add(pamsuma);
+            SqlParameter pamsuma = new SqlParameter("SUMA",0);//declaro el objeto con los parametros dento,
+                                                              //los parametros de salida siempre tienen que
+                                                              //tener un valor por eso le ponemos un 0
+            pamsuma.Direction = ParameterDirection.Output;//declaramos la direccion de los parametros 
+            this.com.Parameters.Add(pamsuma);//los añadimos a la lista
 
             SqlParameter pammedia = new SqlParameter("@MEDIA", 0);
             pammedia.Direction = ParameterDirection.Output;
@@ -94,10 +103,11 @@ namespace AdoNet
             pampersonas.Direction = ParameterDirection.Output;
             this.com.Parameters.Add(pampersonas);
 
+
             //LO DE COMMANTYPE Y LO DEMÁS
             this.com.CommandType = CommandType.StoredProcedure;
             this.com.CommandText = "SP_EMPLEADOS_HOSPITAL";
-            //conexin
+            //conexion
 
             this.cn.Open();
             this.reader = this.com.ExecuteReader();
