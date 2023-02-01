@@ -74,6 +74,7 @@
             this.lstvEmpleados.TabIndex = 2;
             this.lstvEmpleados.UseCompatibleStateImageBehavior = false;
             this.lstvEmpleados.View = System.Windows.Forms.View.Details;
+            
             // 
             // columnApellido
             // 
@@ -142,6 +143,7 @@
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // Form11EmpleadosOficios
             // 

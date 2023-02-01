@@ -51,5 +51,15 @@ namespace AdoNet
 
             }
         }
+
+        private void ListaEmpleados() { }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(this.lstvEmpleados.SelectedItems[0].SubItems[3].Text);
+            int borrados = this.repo.DeleteEmpleado(id);
+            MessageBox.Show("borrados" + borrados);
+            
+        }
     }
 }
