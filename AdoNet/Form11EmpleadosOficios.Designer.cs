@@ -34,7 +34,6 @@
             this.columnApellido = new System.Windows.Forms.ColumnHeader();
             this.columnOficio = new System.Windows.Forms.ColumnHeader();
             this.columnSalario = new System.Windows.Forms.ColumnHeader();
-            this.columnId = new System.Windows.Forms.ColumnHeader();
             this.lblEmpleados = new System.Windows.Forms.Label();
             this.txtIncremento = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -66,8 +65,7 @@
             this.lstvEmpleados.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnApellido,
             this.columnOficio,
-            this.columnSalario,
-            this.columnId});
+            this.columnSalario});
             this.lstvEmpleados.Location = new System.Drawing.Point(56, 198);
             this.lstvEmpleados.Name = "lstvEmpleados";
             this.lstvEmpleados.Size = new System.Drawing.Size(244, 216);
@@ -86,10 +84,6 @@
             // columnSalario
             // 
             this.columnSalario.Text = "Salario";
-            // 
-            // columnId
-            // 
-            this.columnId.Text = "ID";
             // 
             // lblEmpleados
             // 
@@ -180,6 +174,5 @@
         private ColumnHeader columnApellido;
         private ColumnHeader columnOficio;
         private ColumnHeader columnSalario;
-        private ColumnHeader columnId;
     }
 }

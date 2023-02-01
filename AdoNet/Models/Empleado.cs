@@ -13,5 +13,17 @@ namespace AdoNet.Models
         public string Oficio { get; set; }
         public int Salario { get; set; }
 
+
+        public Empleado()
+        {}
+        public Empleado(string apellido,string oficio,int salario)
+        {
+            this.Apellido = apellido;
+            this.Oficio = oficio;
+            this.Salario = salario;
+        }
+
     }
+
+    
 }

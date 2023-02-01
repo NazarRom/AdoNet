@@ -20,6 +20,23 @@ namespace AdoNet
             InitializeComponent();
             this.repo = new RepositoryOficio();
             this.LoadOficios();
+            this.LoadTodosEmpleados();
+        }
+
+        private void LoadTodosEmpleados()
+        {
+            List<Empleado> empleados = this.repo.GetAllEmpleados();
+            this.lstvEmpleados.Items.Clear();
+            foreach (Empleado empleado in empleados)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = empleado.Apellido.ToString();
+                item.SubItems.Add(empleado.Oficio.ToString());
+                item.SubItems.Add(empleado.Salario.ToString());
+                this.lstvEmpleados.Items.Add(item);
+
+            }
+
         }
 
         private void LoadOficios()

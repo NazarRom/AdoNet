@@ -32,6 +32,11 @@ using System.Data;
 //AS
 //UPDATE EMP SET SALARIO = SALARIO + @INCREMENTO WHERE OFICIO = @NOMBRE
 //GO
+
+//CREATE PROCEDURE SP_TODOS_EMPLEADOS
+//AS
+//	SELECT APELLIDO, OFICIO, SALARIO FROM EMP
+//GO
 #endregion
 namespace AdoNet.Repositories
 {
@@ -64,6 +69,26 @@ namespace AdoNet.Repositories
             this.cn.Close();
             this.reader.Close();
             return oficios;
+        }
+
+        public List<Empleado> GetAllEmpleados()
+        {
+            this.com.CommandType = CommandType.StoredProcedure;
+            this.com.CommandText = "SP_TODOS_EMPLEADOS";
+            this.cn.Open();
+            this.reader = this.com.ExecuteReader();
+            List<Empleado> empleados = new List<Empleado>();
+            while (this.reader.Read())
+            {
+                string apellido = this.reader["APELLIDO"].ToString();
+                string ofiocio = this.reader["OFICIO"].ToString();
+                int salario = int.Parse(this.reader["SALARIO"].ToString());
+                Empleado empleado = new Empleado(apellido, ofiocio, salario);
+                empleados.Add(empleado);
+            }
+            this.cn.Close();
+            this.reader.Close();
+            return empleados;
         }
 
         public List<Empleado> GetEmpleadosDatos(string nombre)
