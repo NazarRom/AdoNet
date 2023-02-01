@@ -31,6 +31,8 @@ using System.Windows.Forms;
 //SELECT @SUMA = ISNULL(SUM(SALARIO),0), @MEDIA = ISNULL(AVG(SALARIO), 0), @PERSONAS = COUNT(DOCTOR_NO)
 //FROM DOCTOR WHERE ESPECIALIDAD = @NOMBRE
 //GO
+
+//se saca todo
 #endregion
 namespace AdoNet.Repositories
 {
