@@ -70,11 +70,10 @@
             this.columnId});
             this.lstvEmpleados.Location = new System.Drawing.Point(56, 198);
             this.lstvEmpleados.Name = "lstvEmpleados";
-            this.lstvEmpleados.Size = new System.Drawing.Size(539, 216);
+            this.lstvEmpleados.Size = new System.Drawing.Size(244, 216);
             this.lstvEmpleados.TabIndex = 2;
             this.lstvEmpleados.UseCompatibleStateImageBehavior = false;
             this.lstvEmpleados.View = System.Windows.Forms.View.Details;
-            
             // 
             // columnApellido
             // 
@@ -103,7 +102,7 @@
             // 
             // txtIncremento
             // 
-            this.txtIncremento.Location = new System.Drawing.Point(604, 88);
+            this.txtIncremento.Location = new System.Drawing.Point(360, 98);
             this.txtIncremento.Name = "txtIncremento";
             this.txtIncremento.Size = new System.Drawing.Size(100, 23);
             this.txtIncremento.TabIndex = 4;
@@ -111,7 +110,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(604, 52);
+            this.label3.Location = new System.Drawing.Point(360, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 15);
             this.label3.TabIndex = 5;
@@ -119,16 +118,17 @@
             // 
             // bntIncrementar
             // 
-            this.bntIncrementar.Location = new System.Drawing.Point(604, 127);
+            this.bntIncrementar.Location = new System.Drawing.Point(360, 137);
             this.bntIncrementar.Name = "bntIncrementar";
             this.bntIncrementar.Size = new System.Drawing.Size(100, 23);
             this.bntIncrementar.TabIndex = 6;
             this.bntIncrementar.Text = "Incrementar";
             this.bntIncrementar.UseVisualStyleBackColor = true;
+            this.bntIncrementar.Click += new System.EventHandler(this.bntIncrementar_Click);
             // 
             // btnMostrar
             // 
-            this.btnMostrar.Location = new System.Drawing.Point(338, 44);
+            this.btnMostrar.Location = new System.Drawing.Point(360, 242);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(85, 38);
             this.btnMostrar.TabIndex = 7;
@@ -137,7 +137,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(338, 116);
+            this.btnEliminar.Location = new System.Drawing.Point(360, 314);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(85, 34);
             this.btnEliminar.TabIndex = 8;

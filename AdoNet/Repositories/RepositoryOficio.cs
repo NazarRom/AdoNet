@@ -14,7 +14,7 @@ using System.Data;
 //GO
 
 //CREATE PROCEDURE SP_EMPLEADOS_OFICIO
-//(@NOMBRE NVARCHAR)
+//(@NOMBRE NVARCHAR(50))
 //AS
 //SELECT * FROM EMP WHERE OFICIO = @NOMBRE
 //GO
@@ -24,6 +24,13 @@ using System.Data;
 //(@IDEMP INT)
 //AS
 //DELETE FROM EMP WHERE EMP_NO = 1111
+//GO
+
+
+//CREATE PROCEDURE SP_INCREMENTO_OFICIO
+//(@NOMBRE NVARCHAR(50), @INCREMENTO INT)
+//AS
+//UPDATE EMP SET SALARIO = SALARIO + @INCREMENTO WHERE OFICIO = @NOMBRE
 //GO
 #endregion
 namespace AdoNet.Repositories
@@ -107,6 +114,27 @@ namespace AdoNet.Repositories
             this.com.Parameters.Clear();
 
             return borrados;
+
+        }
+
+        public int IncrementarSalario(int incremento, string nombre)
+        {
+            SqlParameter pamnombre = new SqlParameter("@NOMBRE",nombre);
+            this.com.Parameters.Add(pamnombre);
+
+            SqlParameter pamincremento = new SqlParameter("INCREMENTO", incremento);
+            this.com.Parameters.Add(pamincremento);
+
+            this.com.CommandType = CommandType.StoredProcedure;
+            this.com.CommandText = "SP_INCREMENTO_OFICIO";
+
+            this.cn.Open();
+            int subida = this.com.ExecuteNonQuery();
+            this.cn.Close();
+            this.com.Parameters.Clear();
+
+            return subida;
+
 
         }
 
